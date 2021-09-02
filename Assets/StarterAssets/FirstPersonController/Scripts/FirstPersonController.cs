@@ -16,17 +16,17 @@ namespace StarterAssets
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float MoveSpeed = 4.0f;
+		public float MoveSpeed = 8.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
-		public float SprintSpeed = 6.0f;
+		public float SprintSpeed = 12.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.0f;
+		public float RotationSpeed = 1.5f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
-		public float JumpHeight = 1.2f;
+		public float JumpHeight = 1.8f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
 		public float Gravity = -15.0f;
 
