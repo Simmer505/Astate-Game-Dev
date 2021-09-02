@@ -11,8 +11,7 @@ public class Testing : MonoBehaviour
     private bool goingUp = true;
     private Vector3 distanceToMove;
     private float tunnelStartingY;
-    private bool stopped;
-    private float stoppedTime;
+    private bool stopped = false;
     
 
     // Start is called before the first frame update
@@ -26,31 +25,32 @@ public class Testing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Switch going up if tunnel moves out of bounds
-        if (transform.position.y <= tunnelStartingY || transform.position.y >= tunnelStartingY + 10)
+        // Switch goingUp if tunnel moves out of bounds after a delay set by stopTime
+        Debug.Log(transform.position.y);
+        Debug.Log(transform.position.y <= tunnelStartingY && !goingUp && !stopped || transform.position.y >= tunnelStartingY + 10 && goingUp && !stopped);
+        if ((transform.position.y <= tunnelStartingY && !goingUp && !stopped) || (transform.position.y >= tunnelStartingY + 10 && goingUp && !stopped))
         {
-            if (!stopped)
-            {
-                stoppedTime = Time.time;
-                stopped = true;
-            }
-            if (Time.time > stoppedTime + stopTime)
-            {
-                goingUp = !goingUp;
-                stopped = false;
-                    
-            }
+            
+            StartCoroutine(StopTimer());
         }
 
-        // Move tunnel up if going up and down if going down
-        if (transform.position.y < tunnelStartingY + 10 && goingUp)
+        // Move tunnel in the direction of goingUp
+        if (!stopped && goingUp)
         {
-            transform.position += distanceToMove * Time.deltaTime;
+            transform.Translate(distanceToMove * Time.deltaTime, Space.World);
         }
-        else if (transform.position.y > tunnelStartingY && !goingUp)
+        else if (!stopped && !goingUp)
         {
-            transform.position += -distanceToMove * Time.deltaTime;
+            transform.Translate(-distanceToMove * Time.deltaTime, Space.World);
         }
 
+    }
+
+    IEnumerator StopTimer ()
+    {
+        stopped = true;
+        yield return new WaitForSeconds(stopTime);
+        goingUp = !goingUp;
+        stopped = false;
     }
 }
