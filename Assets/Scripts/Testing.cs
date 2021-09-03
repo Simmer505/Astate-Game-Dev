@@ -6,10 +6,12 @@ public class Testing : MonoBehaviour
 {
 
     public GameObject tunnel;
-    public float Speed = 1.0f;
+    public float Speed = 1;
     public float stopTime = 2f;
-    private bool goingUp = true;
+    public float totalDistance = 10f;
+
     private Vector3 distanceToMove;
+    private bool goingUp = true;
     private float tunnelStartingY;
     private bool stopped = false;
     
@@ -25,9 +27,7 @@ public class Testing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Switch goingUp if tunnel moves out of bounds after a delay set by stopTime
-        Debug.Log(transform.position.y);
-        Debug.Log(transform.position.y <= tunnelStartingY && !goingUp && !stopped || transform.position.y >= tunnelStartingY + 10 && goingUp && !stopped);
+        // Switch goingUp if tunnel is below its starting position or above the height offset, is not stopped, and is going in the wrong direction
         if ((transform.position.y <= tunnelStartingY && !goingUp && !stopped) || (transform.position.y >= tunnelStartingY + 10 && goingUp && !stopped))
         {
             
