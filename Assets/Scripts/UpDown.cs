@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Testing : MonoBehaviour
+public class UpDown : MonoBehaviour
 {
 
-    public GameObject tunnel;
     public float Speed = 1;
     public float stopTime = 2f;
     public float totalDistance = 10f;
@@ -19,7 +18,6 @@ public class Testing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tunnel = gameObject;
         distanceToMove = new Vector3(0, Speed, 0);
         tunnelStartingY = transform.position.y;
 }
@@ -28,7 +26,7 @@ public class Testing : MonoBehaviour
     void Update()
     {
         // Switch goingUp if tunnel is below its starting position or above the height offset, is not stopped, and is going in the wrong direction
-        if ((transform.position.y <= tunnelStartingY && !goingUp && !stopped) || (transform.position.y >= tunnelStartingY + 10 && goingUp && !stopped))
+        if ((transform.position.y <= tunnelStartingY && !goingUp && !stopped) || (transform.position.y >= tunnelStartingY + totalDistance && goingUp && !stopped))
         {
             
             StartCoroutine(StopTimer());

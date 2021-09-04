@@ -20,9 +20,9 @@ namespace StarterAssets
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 12.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.5f;
+		public float RotationSpeed = 2.0f;
 		[Tooltip("Acceleration and deceleration")]
-		public float SpeedChangeRate = 10.0f;
+		public float SpeedChangeRate = 5.0f;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
