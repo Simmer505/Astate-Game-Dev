@@ -24,14 +24,14 @@ public class ScaleUpDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Switch goingUp if tunnel is below its starting position or above the height offset, is not stopped, and is going in the wrong direction
+        // Switch goingUp and start timer if the scale is below its starting position or or above the maximum, is not stopped, and is going in the wrong direction
         if ((transform.localScale.x <= startingScale && !goingUp && !stopped) || (transform.localScale.x >= startingScale + totalChange && goingUp && !stopped))
         {
 
             StartCoroutine(StopTimer());
         }
 
-        // Move tunnel in the direction of goingUp
+        // Scale the tunnel up if goingUp, down if not going up
         if (!stopped && goingUp)
         {
             transform.localScale += amountToScale * Time.deltaTime;
@@ -45,6 +45,7 @@ public class ScaleUpDown : MonoBehaviour
 
     IEnumerator StopTimer()
     {
+        // Timer
         stopped = true;
         yield return new WaitForSeconds(stopTime);
         goingUp = !goingUp;

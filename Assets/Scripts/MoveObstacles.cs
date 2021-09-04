@@ -16,6 +16,7 @@ public class MoveObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Moves the attached gameObject in the direction set by stopAtX, Y, and Z
         if ((stopAtX && gameObject.transform.position.x < stopCoord && toPositive) || (stopAtX && gameObject.transform.position.x > stopCoord && !toPositive))
         {
             gameObject.transform.Translate(new Vector3((toPositive ? speed : -speed) * Time.deltaTime, 0, 0), Space.World);
@@ -30,6 +31,7 @@ public class MoveObstacles : MonoBehaviour
         } 
         else
         {
+            // Destroy the object once it has reached the stopCoord
             Destroy(gameObject);
         }
     }

@@ -15,6 +15,7 @@ public class SpawnObstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Spawn an obstacle if the timer is over and resart timer
         if (!spawned)
         {
             offset = Random.Range(-3.5f, 3.5f);
@@ -28,6 +29,7 @@ public class SpawnObstacle : MonoBehaviour
 
     IEnumerator SpawnTimer()
     {
+        // Timer
         yield return new WaitForSeconds(spawnTime);
         spawned = false;
     }

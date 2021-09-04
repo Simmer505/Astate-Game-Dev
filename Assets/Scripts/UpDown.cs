@@ -46,6 +46,7 @@ public class UpDown : MonoBehaviour
 
     IEnumerator StopTimer ()
     {
+        // Timer
         stopped = true;
         yield return new WaitForSeconds(stopTime);
         goingUp = !goingUp;
