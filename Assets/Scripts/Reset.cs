@@ -21,6 +21,9 @@ public class Reset : MonoBehaviour
             player.transform.position = new Vector3(13.0f, 4.0f, 15.5f);
             player.transform.rotation = Quaternion.identity;
             charController.enabled = true;
+        } else if (other.tag == "Obstacle")
+        {
+            Destroy(other);
         }
     }
 }
