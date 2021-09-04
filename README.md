@@ -29,7 +29,8 @@ I made a difficult obstacle course with a few different challenges:
 		* For the final challenge you have to jump over spinning bars while you run
 		 the end of the platform. The platform is also constantly changing size.
 	* End
-		* Once you get to the end you will find some [food models](https://assetstore.unity.com/packages/3d/props/food/rpg-food-drinks-pack-121067) that I got from
+		* Once you get to the end you will find some food models that I got from
 		 the unity asset store.
 
 I also added a few lights to help light up the course.
+[Food Models](https://assetstore.unity.com/packages/3d/props/food/rpg-food-drinks-pack-121067)
