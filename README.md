@@ -26,5 +26,6 @@ I made a difficult obstacle course with a few different challenges:
 * End
   * Once you get to the end you will find some food models that I got fromthe unity asset store.
 
-I also added a few lights to help light up the course.
+I also added a few lights to help light up the course and a reset trigger that spawns you back at the beginning if you fall off.
+
 [Food Models](https://assetstore.unity.com/packages/3d/props/food/rpg-food-drinks-pack-121067)
